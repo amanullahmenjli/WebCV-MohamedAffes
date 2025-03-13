@@ -1,0 +1,22 @@
+---
+import BlogList from "../../components/BlogList.astro";
+import Blog from "../../layouts/Blog.astro";
+import {Images} from "../../assets/Assets";
+---
+
+<Blog poster={Images.robotics}, title="Robotics: The Next Frontier in Automation", subtitle="Exploring the advancements in robotics and AI">
+    <BlogList
+        list={[{
+            title: "Robotics is advancing rapidly with AI, machine learning, and sensor technology"
+        },
+        {
+            title: "Industrial robots enhance manufacturing efficiency and precision",
+        },
+        {
+            title: "Humanoid robots and autonomous systems are being developed for various applications",
+        },
+        {
+            title: "Ethical considerations and human-robot collaboration are key areas of research",
+        }
+        ]} />
+</Blog>

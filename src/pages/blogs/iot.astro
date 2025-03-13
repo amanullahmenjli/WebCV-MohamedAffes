@@ -1,0 +1,22 @@
+---
+import BlogList from "../../components/BlogList.astro";
+import Blog from "../../layouts/Blog.astro";
+import {Images} from "../../assets/Assets";
+---
+
+<Blog poster={Images.iot}, title="The Role of IoT in Modern Technology", subtitle="How IoT is transforming industries">
+    <BlogList
+        list={[{
+            title: "IoT is revolutionizing industries by connecting devices and enabling automation"
+        },
+        {
+            title: "Smart homes, healthcare, and industrial automation benefit from IoT integration",
+        },
+        {
+            title: "Security and data privacy remain crucial challenges in IoT development",
+        },
+        {
+            title: "The future of IoT involves AI-driven decision-making and enhanced connectivity",
+        }
+        ]} />
+</Blog>

@@ -1,0 +1,55 @@
+---
+import Footer from '../components/Footer.astro';
+import NavBar from '../components/NavBar.astro';
+import '../styles/global.css';
+type Props = {
+    title: string;
+};
+const {title} = Astro.props;
+const icon = '/icons/profilePic-icon.png';
+---
+
+
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="icon" href={icon} >
+        <title>{title}</title>
+    </head>
+
+    <script>
+        function setTheme() {
+            if (localStorage.getItem('theme') === 'dark') {
+                document.documentElement.classList.add('dark');
+            }
+            else {
+                document.documentElement.classList.remove('dark');
+            }
+        }
+
+        // Apply changes on creation
+        setTheme();
+
+        // Change theme on click of the theme button
+        const themeToggle = document.getElementById('theme-toggle');
+        if (themeToggle) {
+            themeToggle.addEventListener('click', setTheme);
+        }
+    </script>
+
+    <body>
+        <NavBar />
+        <slot />
+        <Footer />
+    </body>
+</html>
+
+<style>
+    @media screen and (max-width: 600px){
+        body{
+            width: 90%;
+        }
+        
+    }
+</style>

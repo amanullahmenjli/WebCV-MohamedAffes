@@ -1,0 +1,75 @@
+---
+import type Card from '../model/card-model'
+const {to, title, gradient1, gradient2} = Astro.props as Card;
+---
+<a href={to} class="card" style={`--gradient1: ${gradient1}; --gradient2: ${gradient2};`}>
+    <p>{title}</p>
+    <p>&rarr;</p>
+</a>
+
+<style>
+    .card {
+        display: flex;
+        justify-content: center;
+        align-items:start;
+        text-align: right;
+        flex-direction: column;
+        font-size: 1.25em;
+        text-decoration: none;
+        color: var(--grey-3);
+        text-align: left;
+        padding: 0px 20px;
+        border: 4px solid #0000;
+        border-radius: 12px;
+        background: linear-gradient(var(--background), var(--background)) padding-box, linear-gradient(
+                var(--angle),
+                var(--gradient1),
+                var(--gradient2)
+            ) border-box;
+        animation: 3s rotate linear infinite;
+        transition: all ease 0.4s;
+    }
+
+    @keyframes rotate {
+        to {
+            --angle: 360deg;
+        }
+    }
+
+    @property --angle {
+        syntax: "<angle>";
+        initial-value: 0deg;
+        inherits: false;
+    }
+
+    /* .dark-bg{
+        background: linear-gradient(#121212, #121212) padding-box, linear-gradient(
+                var(--angle),
+                var(--gradient1),
+                var(--gradient2)
+            ) border-box;
+        color: white;
+    } */
+
+    .card:hover{
+        transform: scale(0.95);
+    }
+
+    .card p:first-of-type{
+        font-size: 1.25em;
+        font-weight: 550;
+    }
+
+    .card p:last-of-type{
+        align-self: self-end;
+        /* font-size: 1.25em; */
+    }
+
+    @media only screen and (max-width: 800px) {
+        .card{
+            width: 80%;
+        }
+    }
+
+</style>
+

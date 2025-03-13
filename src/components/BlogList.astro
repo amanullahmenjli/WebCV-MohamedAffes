@@ -1,0 +1,22 @@
+---
+import type List from "../model/main-list-model"
+type Props = {
+    list: List[];
+};
+const {list} = Astro.props;
+const ch = `hi<strong>hi</strong>`;
+---
+<ul>
+    {
+        list.map((item) => (
+            <li set:html={item.title}></li>
+        ))
+    }
+</ul>
+
+<style>
+    li{
+        font-size: 1em;
+        margin-bottom: 20px;
+    }
+</style>

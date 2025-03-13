@@ -1,0 +1,47 @@
+---
+import Main from "./Main.astro";
+import { Images } from "../assets/Assets";
+
+type Props = {
+    poster: string;
+    title: string;
+    subtitle: string;
+};
+const {poster, title, subtitle} = Astro.props;
+---
+
+<Main title="Mohamed Affes | Blog">
+    <div>
+        <img src={poster} alt="">
+        <p>Poster image for {title.toLowerCase()}</p>
+        <h1>{title}</h1>
+        <h2>{subtitle}</h2>
+        <slot />
+    </div>
+</Main>
+
+<style>
+    div {
+        display: flex;
+        flex-direction: column;
+        align-items: start;
+        margin-top: 30px;
+        width: 80%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    img{
+        width: 100%;
+        border-radius: 20px;
+    }
+
+    h1{
+        margin-bottom: 0px;
+        font-size: 3.25em;
+    }
+
+    h2{
+        margin-top: 0px;
+    }
+</style>

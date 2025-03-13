@@ -1,0 +1,25 @@
+---
+import BlogList from "../components/BlogList.astro";
+import Blog from "../layouts/Blog.astro";
+import {Images} from "../assets/Assets";
+---
+
+<Blog poster={Images.philosophies}, title="My Guiding Philosophies", subtitle="These are the principles that guide my work and life:">
+    <BlogList
+        list={[{
+            title: "Continuous learning and <b>improvement</b>"
+        },
+        {
+            title: "Writing clean, efficient, and maintainable code",
+        },
+        {
+            title: "Balancing performance and scalability",
+        },
+        {
+            title: "Collaboration and knowledge sharing",
+        },
+        {
+            title: "Staying updated with the latest tech trends",
+        }
+        ]} />
+</Blog>

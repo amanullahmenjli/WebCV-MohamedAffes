@@ -1,0 +1,62 @@
+---
+import Card from './Card.astro';
+import data from '../data/card-data';
+---
+
+<section id="cards">
+    <div class="container">
+        <div>
+            {
+                data?.map((card) =>(
+                    <Card to={card.to} title={card.title} gradient1={card.gradient1} gradient2={card.gradient2} />
+                ))
+            }
+        </div>
+    </div>
+</section>
+
+<style>
+    #cards{
+        margin: 50px auto;
+    }
+    .container{
+        display: flex;
+        justify-content: center;
+    }
+    .container div{
+        display: flex;
+        justify-content: space-between;
+        gap: 20px;
+        flex-direction: row;
+    }
+    @media only screen and (max-width: 800px) {
+        .container div{
+            flex-direction: column;
+            align-items: center;
+            max-width: 80%;
+        }
+        
+    }
+</style>
+
+<!-- <script>
+    function changeBgColor() {
+        const cards = document.querySelectorAll('.card');
+        if (localStorage.getItem('theme') === 'dark'){
+            cards.forEach(card => {
+                card.classList.add('dark-bg');
+            });
+        }
+        else{
+            cards.forEach(card => {
+                card.classList.remove('dark-bg');
+            });
+        }
+    }
+
+    // to apply changes on creation
+    changeBgColor();
+    
+    // apply changes when theme is changed 
+    document.querySelector('#theme-toggle')?.addEventListener('click', changeBgColor);
+</script> -->

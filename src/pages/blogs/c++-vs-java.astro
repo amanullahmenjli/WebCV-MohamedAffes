@@ -1,0 +1,19 @@
+---
+import BlogList from "../../components/BlogList.astro";
+import Blog from "../../layouts/Blog.astro";
+import {Images} from "../../assets/Assets";
+---
+
+<Blog poster={Images.CplusPlusAndJava}, title="C++ vs Java: Choosing the Right Language for Your Needs", subtitle="A comparison of two powerful programming languages">
+    <BlogList
+        list={[{
+            title: "C++ is known for its performance and is widely used in system programming, game development, and embedded systems"
+        },
+        {
+            title: "Java is platform-independent and excels in enterprise applications, mobile development, and cloud computing",
+        },
+        {
+            title: "Understanding the strengths of each language helps developers choose the best tool for their projects",
+        }
+        ]} />
+</Blog>

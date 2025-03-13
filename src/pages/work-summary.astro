@@ -1,0 +1,22 @@
+---
+import BlogList from "../components/BlogList.astro";
+import Blog from "../layouts/Blog.astro";
+import {Images} from "../assets/Assets";
+---
+
+<Blog poster={Images.work_summary}, title="Work summary", subtitle="A brief overview of my experience:">
+    <BlogList
+        list={[{
+            title: "Database Administrator – Ensuring database efficiency, security, and scalability"
+        },
+        {
+            title: "Web Developer – Designing and developing user-friendly web applications",
+        },
+        {
+            title: "Engineering Student – Studying Integrated Preparatory MI2 with a focus on software development and system optimization",
+        },
+        {
+            title: "Robotics & Automation Enthusiast – Exploring intelligent systems, industrial automation, and autonomous technologies",
+        }
+        ]} />
+</Blog>

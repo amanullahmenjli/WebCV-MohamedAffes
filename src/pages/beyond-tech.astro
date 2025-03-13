@@ -1,0 +1,28 @@
+---
+import BlogList from "../components/BlogList.astro";
+import Blog from "../layouts/Blog.astro";
+import {Images} from "../assets/Assets";
+---
+
+<Blog poster={Images.technology}, title="Beyond Technology", subtitle="Outside of tech, I engage in:">
+    <BlogList
+        list={[{
+            title: "Problem-solving challenges and coding competitions"
+        },
+        {
+            title: "Keeping up with global events and technology trends",
+        },
+        {
+            title: "Exploring innovative web development tools and frameworks",
+        },
+        {
+            title: "Learning about robotics and automation advancements",
+        },
+        {
+            title: "Adviser to the vice president",
+        },
+        {
+            title: "Active participation in technology and engineering clubs to collaborate and innovate",
+        }
+        ]} />
+</Blog>

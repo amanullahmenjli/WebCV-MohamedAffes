@@ -1,0 +1,72 @@
+---
+import {Icons} from '../assets/Assets';
+---
+
+<button id="theme-toggle" onclick="changeTheme()">
+    <img src={Icons.Dark} alt="Theme icon" />
+</button>
+
+<style>
+    button img{
+        width: 1.75em;
+        transition: transform 0.4s ease-in-out, opacity 0.4s ease-in-out;
+    }
+    button{
+        width: 3.5em;
+        height: 3em;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border: none;
+        border-radius: 30%;
+        transition: all 0.4s ease;
+    }
+    button:hover{
+        cursor: pointer;
+        transform: scale(0.9);
+        transition: all 0.4s ease;
+    }
+    .rotate{
+        transform: rotate(180deg);
+    }
+</style>
+
+<script>
+    // Importer les icônes
+    import { Icons } from "../assets/Assets";
+
+    const imgMode = document.querySelector('img');
+
+    // Fonction pour changer le thème
+    function setTheme(theme: string) {
+        if (!imgMode) return;
+        if (theme === 'light') {
+            imgMode.classList.add('rotate');
+            setTimeout(()=>{
+                imgMode.src =Icons.Dark;
+                imgMode.classList.remove('rotate');
+            },200);
+            
+        } else {
+            imgMode.classList.add('rotate');
+            setTimeout(()=>{
+                imgMode.src =Icons.Light;
+                imgMode.classList.remove('rotate');
+            },200);
+        }
+        localStorage.setItem('theme', theme);
+    }
+
+    // Fonction pour changer le thème au clic du bouton
+    function changeTheme() {
+        const currentTheme = localStorage.getItem('theme') || 'light';
+        const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+        setTheme(newTheme);
+    }
+
+    // Exposer la fonction changeTheme au monde extérieur
+    (window as any).changeTheme = changeTheme;
+    
+    // Appliquer le bon thème au chargement de la page
+    setTheme(localStorage.getItem('theme') || 'light');
+</script>

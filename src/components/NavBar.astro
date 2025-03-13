@@ -1,0 +1,92 @@
+---
+import Theme from './Theme.astro'
+---
+
+<nav>
+    <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/philosophies">Philosophies</a></li>
+        <li><a href="/beyond-tech">Beyond technology</a></li>
+    </ul>
+    <Theme />
+</nav>
+
+<style>
+    ul {
+        list-style: none;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        justify-content: space-between;
+        gap: 1rem;
+        padding: 0;
+    }
+    ul li a{
+        text-decoration: none;
+        color: var(--grey-1);
+        padding: 8px 14px;
+        border-radius: 10px;
+        transition: all ease 0.4s;
+    }
+    ul li a:hover{
+        color: var(--grey-2);
+    }
+    nav{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-right: auto;
+        margin-left: auto;
+        font-size: 1em;
+        padding-top: 25px;
+        
+    }
+    a.active{
+        background-color: var(--background-dark);
+        color: white !important;
+    }
+    a.dark-mode{
+        background-color: var(--background-light);
+        color: rgb(57, 57, 57) !important;
+    }
+    @media screen and (max-width: 600px){
+        ul{
+            flex-direction: column;
+            gap: 1.25rem;
+        }
+        nav{
+            padding-top: 10px;
+            /* width: 85%; */
+        }
+        
+    }
+</style>
+
+<script>
+    function applyTheme() {
+        const links = Array.from(document.querySelectorAll('a'));
+        const currentLocation = location.pathname;
+        let currentLink ;
+        links.forEach(link => {
+            if (link.getAttribute('href') === currentLocation) {
+                currentLink = link;
+                link.classList.add('active');
+            }
+        });
+        if (currentLink && localStorage.getItem('theme') === 'dark') {
+            currentLink.classList.add('dark-mode');
+        }
+        else if (currentLink && localStorage.getItem('theme') === 'light') {
+            currentLink.classList.remove('dark-mode');
+        }
+    }
+
+    // Apply the theme on load
+    applyTheme();
+
+    // Listen for the click event on the button
+    const themeToggle = document.getElementById('theme-toggle');
+    if (themeToggle) {
+        themeToggle.addEventListener('click', applyTheme);
+    }
+</script>

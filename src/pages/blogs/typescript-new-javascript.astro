@@ -1,0 +1,22 @@
+---
+import BlogList from "../../components/BlogList.astro";
+import Blog from "../../layouts/Blog.astro";
+import {Images} from "../../assets/Assets";
+---
+
+<Blog poster={Images.typescript}, title="Typescript is the new Javascript", subtitle="Typescript is becoming a standard for web development these days:">
+    <BlogList
+        list={[{
+            title: "TypeScript enhances JavaScript by adding static types"
+        },
+        {
+            title: "Improves code quality and makes large projects easier to maintain",
+        },
+        {
+            title: "Reduces bugs and improves developer productivity",
+        },
+        {
+            title: "Has become a fundamental part of modern web development",
+        }
+        ]} />
+</Blog>

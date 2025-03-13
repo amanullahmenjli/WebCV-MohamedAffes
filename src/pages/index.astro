@@ -1,0 +1,55 @@
+---
+import Cards from "../components/Cards.astro";
+import MainList from "../components/MainList.astro";
+import Main from "../layouts/Main.astro";
+// import {Image} from "astro:assets";
+// import profilePicture from '../assets/profilePic.jpg';
+const profilePicture = '/images/profilePic.jpg';
+---
+<Main title="Mohamed Affes">
+    <div class="profile">
+        <!-- <Image src={profilePicture} alt="profilePic"> -->
+        <img src={profilePicture} alt="profilePic">
+        <div>
+            <h1>Mohamed Affes</h1>
+            <h2>Web Development Enthusiast | Engineering Student | Robotics & Automation Enthusiast</h2>
+            <p>Passionate about building scalable and efficient digital solutions</p>
+        </div>
+    </div>
+    <Cards />
+    <div class="featured-blogs">
+        <h1>Featured Blogs & Articles</h1>
+        <p>Opinion pieces on technology and best practices in web development.</p>
+    </div>
+    <MainList />
+</Main>
+
+<style>
+    .profile{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 20px;
+    }
+
+    .profile img{
+        width: 120px;
+        height: 120px;
+        object-fit: cover;
+        border-radius: 50%;
+    }
+
+    h1, h2, p{
+        color: var(--grey-2);
+    }
+
+    h1{
+        margin-bottom: 0px;
+    }
+
+    
+</style>
+
+<script>
+
+</script>

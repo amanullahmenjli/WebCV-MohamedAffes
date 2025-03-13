@@ -1,0 +1,42 @@
+---
+// import type List from '../model/list-model';
+import data from '../data/main-list-data';
+---
+
+<ol>
+    {
+        data?.map((list) =>(
+            <li><a href={list.to}>{list.title}</a></li>
+            <hr>
+        ))
+    }
+</ol>
+
+<style>
+    a{
+        color: var(--grey-2);
+        text-decoration: none;
+        transition: all 0.3s ease;
+    }
+
+    a:hover{
+        color: var(--grey-1);
+    }
+
+    li{
+        margin-top: 25px;
+        font-size: 1.25em;
+        
+    }
+
+    ul, ol{
+        margin: 0px auto;
+        
+    }
+
+    hr{
+        border: 0.5px solid var(--grey-2);
+        width: 100%;
+        margin-top: 10px;
+    }
+</style>
