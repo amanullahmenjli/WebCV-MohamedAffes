@@ -16,7 +16,7 @@ import {Image} from "astro:assets";
     <div>
         <Image src={poster} alt="" loading="eager" />
         <p>Poster image for {title.toLowerCase()}</p>
-        <h1 transition:name={`${title}`}>{title} transition:animate="initial"</h1>
+        <h1 transition:name={`${title}`}  transition:animate="initial">{title}</h1>
         <h2>{subtitle}</h2>
         <slot />
     </div>
