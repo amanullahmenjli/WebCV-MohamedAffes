@@ -61,12 +61,11 @@ import Theme from './Theme.astro'
     }
 </style>
 
-<script>
+<script is:inline>
     function applyTheme() {
         const links = Array.from(document.querySelectorAll('a'));
         const currentLocation = location.pathname;
 		console.log(currentLocation)
-        let currentLink: HTMLAnchorElement | undefined;
         links.forEach(link => {
 				console.log(link.getAttribute('href') )
             if (link.getAttribute('href') === currentLocation) {
