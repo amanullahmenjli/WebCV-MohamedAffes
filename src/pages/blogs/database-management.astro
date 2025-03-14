@@ -1,10 +1,10 @@
 ---
 import BlogList from "../../components/BlogList.astro";
 import Blog from "../../layouts/Blog.astro";
-import {Images} from "../../assets/Assets";
+import database from '../../assets/images/database.png';
 ---
 
-<Blog poster={Images.database}, title="The Importance of Efficient Database Management", subtitle="Optimizing database performance and security">
+<Blog poster={database}, title="The Importance of Efficient Database Management", subtitle="Optimizing database performance and security">
     <BlogList
         list={[{
             title: "Databases are the backbone of modern applications"

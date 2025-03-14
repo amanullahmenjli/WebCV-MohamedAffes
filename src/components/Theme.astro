@@ -1,9 +1,11 @@
 ---
-import {Icons} from '../assets/Assets';
+import {Image} from "astro:assets";
+import Dark from "../assets/icons/dark-mode.svg";
+import Light from "../assets/icons/light-mode.svg";
 ---
 
 <button id="theme-toggle" onclick="changeTheme()">
-    <img src={Icons.Dark} alt="Theme icon" />
+    <Image src={Dark} alt="Theme icon" id="theme-icon" loading="eager" />
 </button>
 
 <style>
@@ -32,25 +34,24 @@ import {Icons} from '../assets/Assets';
 </style>
 
 <script>
-    // Importer les icônes
-    import { Icons } from "../assets/Assets";
+    import Dark from "../assets/icons/dark-mode.svg";
+    import Light from "../assets/icons/light-mode.svg";
 
-    const imgMode = document.querySelector('img');
-
+    const imgMode = document.getElementById('theme-icon') as HTMLImageElement;;
     // Fonction pour changer le thème
     function setTheme(theme: string) {
         if (!imgMode) return;
         if (theme === 'light') {
             imgMode.classList.add('rotate');
             setTimeout(()=>{
-                imgMode.src =Icons.Dark;
+                imgMode.src =Dark.src;
                 imgMode.classList.remove('rotate');
             },200);
             
         } else {
             imgMode.classList.add('rotate');
             setTimeout(()=>{
-                imgMode.src =Icons.Light;
+                imgMode.src =Light.src;
                 imgMode.classList.remove('rotate');
             },200);
         }

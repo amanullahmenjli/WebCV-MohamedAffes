@@ -2,14 +2,13 @@
 import Cards from "../components/Cards.astro";
 import MainList from "../components/MainList.astro";
 import Main from "../layouts/Main.astro";
-// import {Image} from "astro:assets";
-// import profilePicture from '../assets/profilePic.jpg';
-const profilePicture = '/images/profilePic.jpg';
+
+import {Image} from "astro:assets";
+import profilePicture from '../assets/images/profilePic.jpg';
 ---
 <Main title="Mohamed Affes">
     <div class="profile">
-        <!-- <Image src={profilePicture} alt="profilePic"> -->
-        <img src={profilePicture} alt="profilePic">
+        <Image src={profilePicture} alt="profilePic" loading="eager"/>
         <div>
             <h1>Mohamed Affes</h1>
             <h2>Web Development Enthusiast | Engineering Student | Robotics & Automation Enthusiast</h2>

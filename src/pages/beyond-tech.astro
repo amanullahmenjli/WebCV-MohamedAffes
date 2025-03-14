@@ -1,10 +1,10 @@
 ---
 import BlogList from "../components/BlogList.astro";
 import Blog from "../layouts/Blog.astro";
-import {Images} from "../assets/Assets";
+import technology from '../assets/images/technology.jpg';
 ---
 
-<Blog poster={Images.technology}, title="Beyond Technology", subtitle="Outside of tech, I engage in:">
+<Blog poster={technology}, title="Beyond Technology", subtitle="Outside of tech, I engage in:">
     <BlogList
         list={[{
             title: "Problem-solving challenges and coding competitions"

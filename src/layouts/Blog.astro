@@ -1,18 +1,20 @@
 ---
+import type { ImageMetadata } from "astro";
 import Main from "./Main.astro";
-import { Images } from "../assets/Assets";
 
 type Props = {
-    poster: string;
+    poster: ImageMetadata;
     title: string;
     subtitle: string;
 };
 const {poster, title, subtitle} = Astro.props;
+
+import {Image} from "astro:assets";
 ---
 
 <Main title="Mohamed Affes | Blog">
     <div>
-        <img src={poster} alt="">
+        <Image src={poster} alt="" loading="eager" />
         <p>Poster image for {title.toLowerCase()}</p>
         <h1>{title}</h1>
         <h2>{subtitle}</h2>
@@ -33,6 +35,7 @@ const {poster, title, subtitle} = Astro.props;
 
     img{
         width: 100%;
+        height: auto;
         border-radius: 20px;
     }
 
