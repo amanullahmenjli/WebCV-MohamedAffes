@@ -68,6 +68,7 @@ import Theme from './Theme.astro'
 		console.log(currentLocation)
         let currentLink: HTMLAnchorElement | undefined;
         links.forEach(link => {
+				console.log(link.getAttribute('href') )
             if (link.getAttribute('href') === currentLocation) {
                 currentLink = link;
                 link.classList.add('active');
