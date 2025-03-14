@@ -83,6 +83,15 @@ import Theme from './Theme.astro'
     // Apply the theme on load
     applyTheme();
 
+    // Apply the theme after swapping
+    document.addEventListener("astro:after-swap", () => {
+        applyTheme();
+        const themeToggle = document.getElementById('theme-toggle');
+        if (themeToggle) {
+            themeToggle.addEventListener('click', applyTheme);
+        }
+    });
+
     // Listen for the click event on the button
     const themeToggle = document.getElementById('theme-toggle');
     if (themeToggle) {

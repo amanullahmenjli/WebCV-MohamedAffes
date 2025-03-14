@@ -8,6 +8,7 @@ type Props = {
 const {title} = Astro.props;
 
 import icon from '../assets/icons/profilePic-icon.png?url';
+import { ViewTransitions } from 'astro:transitions';
 ---
 
 
@@ -17,6 +18,7 @@ import icon from '../assets/icons/profilePic-icon.png?url';
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="icon" href={icon} >
         <title>{title}</title>
+        <ViewTransitions />
     </head>
 
     <script>
@@ -31,6 +33,15 @@ import icon from '../assets/icons/profilePic-icon.png?url';
 
         // Apply changes on creation
         setTheme();
+
+        // Apply changes after swapping
+        document.addEventListener("astro:after-swap",() => {
+            setTheme();
+            const themeToggle = document.getElementById('theme-toggle');
+            if (themeToggle) {
+                themeToggle.addEventListener('click', setTheme);
+            }
+        });
 
         // Change theme on click of the theme button
         const themeToggle = document.getElementById('theme-toggle');

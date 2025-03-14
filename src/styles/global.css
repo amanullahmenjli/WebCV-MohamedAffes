@@ -38,3 +38,7 @@ h1 + h2{
 b, strong{
     font-weight: 700;
 }
+
+.g-1{
+    font-weight: 550;
+}

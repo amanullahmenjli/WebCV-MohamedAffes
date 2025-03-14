@@ -7,11 +7,11 @@ const data: List[] = [
     },
     {
         to: '/blogs/typescript-new-javascript',
-        title: 'TypeScript'
+        title: 'Typescript is the new Javascript'
     },
     {
         to: '/blogs/c++-vs-java',
-        title: 'C++ vs Java'
+        title: 'C++ vs Java: Choosing the Right Language for Your Needs'
     },
     {
         to: '/blogs/iot',
@@ -19,7 +19,7 @@ const data: List[] = [
     },
     {
         to: '/blogs/robotics',
-        title: 'Robotics'
+        title: 'Robotics: The Next Frontier in Automation'
     }
 ]
 

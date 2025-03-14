@@ -11,6 +11,7 @@ import Light from "../assets/icons/light-mode.svg";
 <style>
     button img{
         width: 1.75em;
+        height: auto;
         transition: transform 0.4s ease-in-out, opacity 0.4s ease-in-out;
     }
     button{
@@ -37,11 +38,28 @@ import Light from "../assets/icons/light-mode.svg";
     import Dark from "../assets/icons/dark-mode.svg";
     import Light from "../assets/icons/light-mode.svg";
 
-    const imgMode = document.getElementById('theme-icon') as HTMLImageElement;;
-    // Fonction pour changer le thème
+    // Fonction pour charger le thème actuel depuis le localStorage
     function setTheme(theme: string) {
+        const imgMode = document.getElementById('theme-icon') as HTMLImageElement;
         if (!imgMode) return;
         if (theme === 'light') {
+            imgMode.classList.remove('rotate');
+            imgMode.src =Dark.src;
+            
+        } else {
+            imgMode.classList.remove('rotate');
+            imgMode.src =Light.src;
+        }
+        localStorage.setItem('theme', theme);
+    }
+
+    // Fonction pour changer le thème au clic du bouton
+    function changeTheme() {
+        const currentTheme = localStorage.getItem('theme') || 'light';
+        const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+        const imgMode = document.getElementById('theme-icon') as HTMLImageElement;
+        if (!imgMode) return;
+        if (newTheme === 'light') {
             imgMode.classList.add('rotate');
             setTimeout(()=>{
                 imgMode.src =Dark.src;
@@ -55,14 +73,7 @@ import Light from "../assets/icons/light-mode.svg";
                 imgMode.classList.remove('rotate');
             },200);
         }
-        localStorage.setItem('theme', theme);
-    }
-
-    // Fonction pour changer le thème au clic du bouton
-    function changeTheme() {
-        const currentTheme = localStorage.getItem('theme') || 'light';
-        const newTheme = currentTheme === 'light' ? 'dark' : 'light';
-        setTheme(newTheme);
+        localStorage.setItem('theme', newTheme);
     }
 
     // Exposer la fonction changeTheme au monde extérieur
@@ -70,4 +81,9 @@ import Light from "../assets/icons/light-mode.svg";
     
     // Appliquer le bon thème au chargement de la page
     setTheme(localStorage.getItem('theme') || 'light');
+
+    // IMPORTANT : Écouter les changements de page avec Astro
+    document.addEventListener('astro:after-swap', () => {
+        setTheme(localStorage.getItem('theme') || 'light'); // Réappliquer le thème après chaque transition de page
+    });
 </script>
